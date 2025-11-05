@@ -6,11 +6,11 @@ const blogPosts = [
     image: "blog1.jpg",
     content: `
       You ever wake up, stare at the ceiling, and wonder, “So what’s my purpose again?”
-      Don’t worry — we’ve all been there, usually around exam season at Nabisunsa Girls or during PLE prep, when stress hits harder than the boda boda traffic. 😅
+      Don’t worry we’ve all been there, usually around exam season at school or during PLE prep, when stress hits harder than the boda boda traffic. 😅
       <br><br>
       Life has seasons, and so does purpose. Sometimes it’s loud and obvious, like acing your UNEB mock exams. Sometimes it’s quiet, like helping a friend revise for Physics or getting your first prize at a school debate.
       <br><br>
-      Tip: Ask yourself daily, “What lights me up today?” — not “What will impress everyone else?” You’ll be shocked how freeing that feels.
+      Tip: Ask yourself daily, “What lights me up today?” not “What will impress everyone else?” You’ll be shocked how freeing that feels.
       And remember, it’s okay to change directions. Life isn’t a straight line, it’s a rollercoaster. 🎢✨
     `
   },
@@ -30,14 +30,14 @@ const blogPosts = [
   },
   {
     title: "Surviving Group Projects Without Losing Your Mind",
-    author: "Guest Blogger",
+    author: "Vanessa Kusiima",
     date: "August 20, 2025",
     image: "blog3.jpg",
     content: `
       Ah, group projects: the adulting simulation nobody warned you about.
-      10% do all the work, 70% send “😂” emojis, 20% are MIA — and the deadline is looming faster than a taxi in rush hour Kampala.
+      10% do all the work, 70% send “😂” emojis, 20% are MIA and the deadline is looming faster than a taxi in rush hour Kampala.
       <br><br>
-      Secret: teamwork = adulting in disguise. Assign roles early, communicate like you’re coordinating a school festival, and keep humor alive — memes and jokes help stress levels.
+      Secret: teamwork = adulting in disguise. Assign roles early, communicate like you’re coordinating a school festival, and keep humor alive memes and jokes help stress levels.
       <br><br>
       Life lesson: group projects teach patience, leadership, conflict resolution, and compromise. Also, figure out which teammates are ride-or-die vs emoji-only contributors. 😂
     `
@@ -48,11 +48,11 @@ const blogPosts = [
     date: "September 10, 2025",
     image: "blog4.jpg",
     content: `
-      Failure sucks. No sugarcoating it. Bombed an exam, missed a scholarship deadline, or forgot your lines in the school play — it stings.
+      Failure sucks. No sugarcoating it. Bombed an exam, missed a scholarship deadline, or forgot your lines in the school play it stings.
       <br><br>
       But failures are free lessons. Think of them as uninvited teachers crashing your life party to teach something valuable.
       <br><br>
-      Lesson: fail fast, laugh at yourself, and take notes. Every misstep is data for your next win. Bonus — friends will laugh with you, which makes it less painful. 😂
+      Lesson: fail fast, laugh at yourself, and take notes. Every misstep is data for your next win. Bonus friends will laugh with you, which makes it less painful. 😂
       <br><br>
       Moral: failure isn’t final, it’s fertilizer. Grow, bloom, and keep glowing. 🌱✨
     `
@@ -67,7 +67,7 @@ const blogPosts = [
       <br><br>
       Enter: your tribe. Friends, mentors, classmates, or online buddies who get you, hype you, and sometimes drag you out of bed when you want to hide under your blanket forever. 🛌💥
       <br><br>
-      Hint: it’s not about quantity — one ride-or-die friend is worth ten casual acquaintances. And laughter? Mandatory. Always bring laughter. 😂✨
+      Hint: it’s not about quantity one ride-or-die friend is worth ten casual acquaintances. And laughter? Mandatory. Always bring laughter. 😂✨
     `
   }
 ];
