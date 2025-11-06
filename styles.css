@@ -1,11 +1,12 @@
 /* ---------------- Global Styles ---------------- */
 /* ---------------- Global Styles ---------------- */
+/* ---------------- Global Styles ---------------- */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   line-height: 1.6;
-  color: #000000; /* use black for text */
-  background-color: #f9f9f9; /* light background */
+  color: #000000; /* default black text */
+  background-color: #f9f9f9;
 }
 
 .container {
@@ -16,12 +17,69 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 15px 0;
-  color: #000000; /* headings in black */
+  color: #000000;
 }
 
 p {
   margin-bottom: 20px;
-  color: #000000; /* paragraphs in black */
+  color: #000000;
+}
+
+/* ---------------- Light Text Helper ---------------- */
+/* Use this class in sections with dark or image backgrounds */
+/* ---------------- Light Text Helper ---------------- */
+/* Use this class in sections with dark or image backgrounds */
+.text-light,
+.hero-section h1,
+.hero-section h2,
+.hero-section p,
+.donate-hero h1,
+.donate-hero h2,
+.donate-hero h3,
+.donate-hero p,
+.events-hero h1,
+.events-hero h2,
+.events-hero h3,
+.events-hero p,
+.contact-hero h1,
+.contact-hero h2,
+.contact-hero h3,
+.contact-hero p,
+.get-involved-hero h1,
+.get-involved-hero h2,
+.get-involved-hero h3,
+.get-involved-hero p {
+  color: #ffffff !important; /* makes text white */
+}
+
+/* Optional: Add subtle shadow to improve visibility over images */
+.text-light,
+.hero-section h1,
+.hero-section p,
+.get-involved-hero h1,
+.get-involved-hero p {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* ---------------- Automatic Light Text for Image Sections ---------------- */
+.hero,
+.programs-hero,
+.contact-hero,
+.events-hero,
+.get-involved-hero,
+.blog-hero,
+.donate-hero {
+  color: #ffffff; /* make all text inside white */
+}
+
+.hero h1, .hero h2, .hero h3, .hero p,
+.programs-hero h1, .programs-hero h2, .programs-hero h3, .programs-hero p,
+.contact-hero h1, .contact-hero h2, .contact-hero h3, .contact-hero p,
+.events-hero h1, .events-hero h2, .events-hero h3, .events-hero p,
+.get-involved-hero h1, .get-involved-hero h2, .get-involved-hero h3, .get-involved-hero p,
+.donate-hero h1, .donate-hero h2, .donate-hero h3, .donate-hero p {
+  color: #ffffff !important;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6); /* improves readability over bright areas */
 }
 
 /* ---------------- Navbar ---------------- */
@@ -32,8 +90,12 @@ p {
   top: 0;
   width: 100%;
   z-index: 100;
+  height: 80px; /* fixed navbar height */
+  display: flex;
+  align-items: center; /* vertically center content */
 }
 
+/* Container inside navbar */
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -43,10 +105,15 @@ p {
   padding: 0 20px;
 }
 
+/* Logo size */
 .nav-logo img {
-  height: 60px;
+  height: 70px; /* increase logo size */
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
+/* Menu links */
 .nav-menu {
   display: flex;
   list-style: none;
@@ -59,16 +126,17 @@ p {
 
 .nav-link {
   text-decoration: none;
-  color: #ffffff; /* white text over primary navbar */
+  color: #ffffff; /* white text for contrast */
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: #B60284; /* accent logo color on hover/active */
+  color: #B60284; /* accent pink color */
 }
 
+/* Hamburger menu */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -83,14 +151,14 @@ p {
   border-radius: 2px;
 }
 
-/* Show hamburger only on small screens */
+/* Responsive navbar */
 @media (max-width: 768px) {
   .nav-menu {
     display: none;
     flex-direction: column;
-    background-color: rgba(5, 165, 164, 0.95); /* primary color transparent */
+    background-color: #05A5A4;
     position: absolute;
-    top: 70px; 
+    top: 80px; /* match navbar height */
     right: 20px;
     width: 200px;
     padding: 15px;
@@ -105,10 +173,6 @@ p {
 
   .hamburger {
     display: flex;
-  }
-
-  .hamburger .bar {
-    background-color: #ffffff; /* white bars visible */
   }
 }
 
