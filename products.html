@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | YADA-EXPERIENCE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YADA Experience Journal – Products</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+
     <!-- Navigation -->
+<header>
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="images/yaada.png"YADA Experience Logo" class="logo-img">
-            </div>
+    <a href="index.html">
+        <img src="images/yaada.png" alt="YADA EXPERIENCE Logo">
+    </a>
+</div>
+
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="programs.html" class="nav-link">Programs</a></li>
                 <li><a href="events.html" class="nav-link">Events</a></li>
-                <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
                 <li><a href="products.html" class="nav-link active">Products</a></li>
                 <li><a href="get-involved.html" class="nav-link">Get Involved</a></li>
                 <li><a href="donate.html" class="nav-link">Donate</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+
+            <!-- Hamburger for mobile -->
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -32,32 +39,63 @@
             </div>
         </div>
     </nav>
+    </header>
 
-    <!-- Page Header -->
-    <section class="blog-hero">
-        <div class="container">
-            <h1>YADA Blog</h1>
-            <p>Fun, relatable stories, tips, and uplifting experiences for students in Uganda.</p>
+    <!-- Product Section -->
+    <section class="product-hero">
+        <div class="product-container">
+
+            <!-- Book Image Placeholder -->
+            <div class="product-image">
+                <!-- Upload your book image later -->
+                <img src="images/IMG_5102.jpg" alt="Yada Experience Journal" />
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-details">
+                <h1 class="product-title">YADA EXPERIENCE JOURNAL</h1>
+
+                <p class="product-tagline">
+                    A Journal for Everyone Intentional About Living with Purpose.
+                </p>
+
+                <p class="product-price"><strong>Price:</strong> UGX 35,000</p>
+
+                <p class="product-description">
+                    The Yada Experience Purpose Journal guides you through People, Places, Experiences, and Meditations that give life meaning. 
+                    Capture your story, track your growth, and discover the purpose that makes your journey come alive..
+                </p>
+
+                <ul class="product-features">
+                     <li>Guided reflections for meaningful self-discovery</li>
+                     <li>People, Places, Experiences & Meditations prompts</li>
+                     <li>Faith-building affirmations & gratitude exercises</li>
+                     <li>Encourages intentional living and purposeful growth</li>
+                </ul>
+
+                <!-- Buy Now Button -->
+              <button id="buyNowBtn" class="buy-btn">Buy Now</button>
+
+<div class="popup" id="buyPopup">
+    <span class="close">&times;</span>
+    <h3>MTN Mobile Money Payment</h3>
+    <p>Send UGX 35,000 to MTN 0783 501 007</p>
+    <p>After payment, send your name & delivery info via WhatsApp:</p>
+    <p>
+        <a href="https://wa.me/256783501007" target="_blank" class="whatsapp-link">Chat on WhatsApp</a>
+    </p>
+</div>
+
+
+                <!-- Payment Info -->
+                <div class="payment-box">
+                    <h3>📲 Payment Methods</h3>
+                    <p>MTN Mobile Money • Airtel Money • Cash on Delivery (within Kampala)</p>
+                </div>
+
+            </div>
         </div>
     </section>
-
-    <!-- Blog Posts Section -->
-    <section class="blog-section">
-        <div class="container" id="blog-posts">
-            <!-- Blog posts rendered by JS -->
-        </div>
-    </section>
-
-    <!-- Blog Modal -->
-    <div id="blog-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2 id="modal-title"></h2>
-            <p class="blog-meta" id="modal-meta"></p>
-            <img id="modal-image" src="images/untitled-4399.jpg" alt="">
-            <p id="modal-content"></p>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -97,6 +135,6 @@
         </div>
     </footer>
 
-    <script src="blog.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

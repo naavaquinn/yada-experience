@@ -135,47 +135,47 @@ p {
 .nav-link.active {
   color: #B60284; /* accent pink color */
 }
-
-/* Hamburger menu */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.hamburger .bar {
-  height: 3px;
-  width: 25px;
-  background-color: #ffffff; /* white bars for visibility */
-  margin: 4px 0;
-  border-radius: 2px;
-}
-
-/* Responsive navbar */
+/* ---------- FINAL FIXED MOBILE MENU ---------- */
 @media (max-width: 768px) {
+
+  /* Show hamburger button */
+  .hamburger {
+    display: flex !important;
+    z-index: 200; /* make sure it's clickable */
+  }
+
+  .hamburger .bar {
+    background-color: #ffffff !important;
+  }
+
+  /* Mobile dropdown */
   .nav-menu {
     display: none;
     flex-direction: column;
     background-color: #05A5A4;
     position: absolute;
-    top: 80px; /* match navbar height */
+    top: 80px; /* below navbar */
     right: 20px;
-    width: 200px;
+    width: 220px;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    text-align: right;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 300; /* ⭐ MAKE IT APPEAR ABOVE EVERYTHING */
   }
 
   .nav-menu.active {
-    display: flex;
+    display: flex !important;
   }
 
-  .hamburger {
-    display: flex;
+  .nav-link {
+    color: #ffffff !important;
+    padding: 12px 0;
+  }
+
+  .nav-link:hover {
+    color: #B60284 !important;
   }
 }
-
 
 /* ---------------- Hero Section ---------------- */
 .hero, .programs-hero, .contact-hero,  .events-hero{
@@ -386,10 +386,16 @@ p {
 }
 
 /* ---------------- Team Section ---------------- */
+/* ---------------- Team Section ---------------- */
 .team-section {
   background: #f9f9f9;
   padding: 60px 20px;
   text-align: center;
+}
+
+.team-section .section-title {
+  font-size: 2rem;
+  margin-bottom: 40px;
 }
 
 .team-grid {
@@ -407,6 +413,7 @@ p {
   box-shadow: 0 4px 14px rgba(0,0,0,0.1);
   width: 250px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
 .team-card:hover {
@@ -414,12 +421,16 @@ p {
   box-shadow: 0 12px 20px rgba(0,0,0,0.15);
 }
 
+/* Fixed Image Styling */
 .team-card img {
   width: 100%;
-  height: auto;
-  border-radius: 50%;
+  height: 250px;       /* fixed square height */
+  object-fit: cover;   /* fills the square nicely */
+  border-radius: 12px; /* soft corners */
   margin-bottom: 15px;
+  background-color: #fff; /* optional */
 }
+
 
 /* ---------------- CTA Section ---------------- */
 .cta-section {

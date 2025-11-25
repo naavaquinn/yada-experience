@@ -19,16 +19,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Smooth Scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Smooth Scroll ONLY for real anchor links (NOT page links)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    const href = anchor.getAttribute('href');
+
+    // skip links like "#" or "#0"
+    if (href.length > 1) {
         anchor.addEventListener('click', e => {
-            e.preventDefault();
-            const target = document.querySelector(anchor.getAttribute('href'));
+            const target = document.querySelector(href);
             if (target) {
+                e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
-    });
+    }
+});
 
     // Navbar scroll effect
     window.addEventListener('scroll', () => {
@@ -360,10 +365,10 @@ Thank you for supporting YADA-EXPERIENCE!`);
             },
             {
                 id: 2,
-                title: "Purpose Discovery Workshop",
-                date: "2025-07-15",
-                time: "10:00 AM - 3:00 PM",
-                location: "YADA Experience Center, Kampala",
+                title: "School Outreach",
+                date: "2024-11-27",
+                time: "2:00 PM - 4:00 PM",
+                location: "Taibah International school",
                 description: "An intensive workshop designed to help young people uncover their unique purpose and calling.",
                 topics: [
                     "Self-reflection exercises",
@@ -377,14 +382,14 @@ Thank you for supporting YADA-EXPERIENCE!`);
             },
             {
                 id: 3,
-                title: "Leadership Skills Bootcamp",
-                date: "2025-08-20",
-                time: "9:00 AM - 5:00 PM",
-                location: "Makerere University",
+                title: "School Outreach",
+                date: "2025-05-30",
+                time: "11:00 AM - 1:00 PM",
+                location: "Greenhill academy",
                 description: "A full-day intensive program focused on developing leadership skills for young changemakers.",
                 topics: [
-                    "Leadership styles and approaches",
-                    "Team building and collaboration",
+                    "Commitment , Excellence ",
+                    "Building confidence ",
                     "Communication and public speaking",
                     "Project management basics"
                 ],
@@ -394,16 +399,16 @@ Thank you for supporting YADA-EXPERIENCE!`);
             },
             {
                 id: 4,
-                title: "Mentorship Matching Event",
-                date: "2025-05-10",
-                time: "2:00 PM - 6:00 PM",
-                location: "Kampala International University",
-                description: "Connect with experienced mentors who can guide your personal and professional development journey.",
+                title: "Harakati Experience Meetup",
+                date: "2025-09-23",
+                time: "2:00 PM - 9:00 PM",
+                location: "Itungo Catering centre",
+                description: "Igniting purpose through creative expression poetry,music,drama,dance and storytelling.",
                 topics: [
-                    "Speed mentoring sessions",
-                    "Career pathway discussions",
+                    "storytelling for impact",
+                    "Creative expression",
                     "Networking opportunities",
-                    "Mentor-mentee relationship building"
+                    "Showcasing talents"
                 ],
                 category: "networking",
                 registrationOpen: false,
@@ -581,5 +586,27 @@ Thank you for supporting YADA-EXPERIENCE!`);
         });
 
     } // end events-page
+
+// ---------------- Product Buy Now Popup ----------------
+const buyBtn = document.getElementById("buyNowBtn");
+const popup = document.getElementById("buyPopup");
+const closeBtn = document.querySelector(".popup .close");
+
+if(buyBtn && popup && closeBtn) {
+    buyBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        popup.style.display = "block";
+    });
+
+    closeBtn.addEventListener('click', function() {
+        popup.style.display = "none";
+    });
+
+    window.addEventListener('click', function(event) {
+        if(event.target == popup) {
+            popup.style.display = "none";
+        }
+    });
+}
 
 }); // end DOMContentLoaded
