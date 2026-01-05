@@ -321,6 +321,8 @@ p {
   box-shadow: 0 12px 20px rgba(0,0,0,0.15);
 }
 
+
+
 /* ---------------- Story Section ---------------- */
 .story-section {
   max-width: 900px;
@@ -396,8 +398,10 @@ p {
 .team-section .section-title {
   font-size: 2rem;
   margin-bottom: 40px;
+  color: #1f2933;
 }
 
+/* Grid */
 .team-grid {
   display: flex;
   flex-wrap: wrap;
@@ -406,12 +410,13 @@ p {
   margin-top: 30px;
 }
 
+/* Card */
 .team-card {
-  background: white;
-  padding: 20px;
+  background: #ffffff;
+  padding: 24px;
   border-radius: 16px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-  width: 250px;
+  width: 280px; /* wider for portraits */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
 }
@@ -421,15 +426,38 @@ p {
   box-shadow: 0 12px 20px rgba(0,0,0,0.15);
 }
 
-/* Fixed Image Styling */
+/* Image — FIXED (no head cutting) */
 .team-card img {
   width: 100%;
-  height: 250px;       /* fixed square height */
-  object-fit: cover;   /* fills the square nicely */
-  border-radius: 12px; /* soft corners */
-  margin-bottom: 15px;
-  background-color: #fff; /* optional */
+  height: 260px;
+  object-fit: contain;          /* preserves faces */
+  object-position: center top;  /* protects heads */
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  margin-bottom: 16px;
 }
+
+/* Name */
+.team-card h3 {
+  color: #4b1d6b;     /* muted purple */
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+/* Role */
+.team-card .role {
+  color: #006d5b;     /* muted teal */
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+/* Optional description text */
+.team-card p {
+  color: #555;
+  font-size: 0.9rem;
+}
+
 
 
 /* ---------------- CTA Section ---------------- */
@@ -1592,23 +1620,27 @@ textarea {
 }
 
 /* --- Footer Social Links --- */
+/* FIXED: Now matches the main footer color scheme */
 .footer .social-links {
     display: flex;
     flex-direction: row;
     gap: 15px;
     margin-top: 10px;
+    justify-content: center; /* centers icons nicely */
 }
 
 .footer .social-links a {
     text-decoration: none;
-    color: #555;
+    color: #ffffff;           /* white - consistent with footer */
     font-weight: 500;
     transition: color 0.3s ease;
+    font-size: 1.1rem;
 }
 
 .footer .social-links a:hover {
-    color: #FF6B6B;
+    color: #ff7b00;           /* orange - consistent with footer hover */
 }
+
 /* Blog Hero */
 .blog-section {
     padding: 60px 20px;
