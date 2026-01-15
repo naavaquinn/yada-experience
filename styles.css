@@ -1,12 +1,27 @@
-/* ---------------- Global Styles ---------------- */
-/* ---------------- Global Styles ---------------- */
-/* ---------------- Global Styles ---------------- */
+/* =========================
+   GLOBAL BASE
+========================= */
+:root{
+  --teal: #05A5A4;
+  --pink: #B60284;
+  --orange: #ff7b00;
+  --bg: #f9f9f9;
+  --text: #000;
+  --muted: #555;
+  --card: #fff;
+  --shadow: 0 4px 14px rgba(0,0,0,0.1);
+  --shadow-hover: 0 12px 20px rgba(0,0,0,0.15);
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   line-height: 1.6;
-  color: #000000; /* default black text */
-  background-color: #f9f9f9;
+  color: var(--text);
+  background-color: var(--bg);
 }
 
 .container {
@@ -15,266 +30,239 @@ body {
   padding: 0 20px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 15px 0;
-  color: #000000;
-}
+h1,h2,h3,h4,h5,h6 { margin: 0 0 15px 0; color: var(--text); }
+p { margin: 0 0 20px 0; color: var(--text); }
 
-p {
-  margin-bottom: 20px;
-  color: #000000;
-}
-
-/* ---------------- Light Text Helper ---------------- */
-/* Use this class in sections with dark or image backgrounds */
-/* ---------------- Light Text Helper ---------------- */
-/* Use this class in sections with dark or image backgrounds */
-.text-light,
-.hero-section h1,
-.hero-section h2,
-.hero-section p,
-.donate-hero h1,
-.donate-hero h2,
-.donate-hero h3,
-.donate-hero p,
-.events-hero h1,
-.events-hero h2,
-.events-hero h3,
-.events-hero p,
-.contact-hero h1,
-.contact-hero h2,
-.contact-hero h3,
-.contact-hero p,
-.get-involved-hero h1,
-.get-involved-hero h2,
-.get-involved-hero h3,
-.get-involved-hero p {
-  color: #ffffff !important; /* makes text white */
-}
-
-/* Optional: Add subtle shadow to improve visibility over images */
-.text-light,
-.hero-section h1,
-.hero-section p,
-.get-involved-hero h1,
-.get-involved-hero p {
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-/* ---------------- Automatic Light Text for Image Sections ---------------- */
-.hero,
-.programs-hero,
-.contact-hero,
-.events-hero,
-.get-involved-hero,
-.blog-hero,
-.donate-hero {
-  color: #ffffff; /* make all text inside white */
-}
-
-.hero h1, .hero h2, .hero h3, .hero p,
-.programs-hero h1, .programs-hero h2, .programs-hero h3, .programs-hero p,
-.contact-hero h1, .contact-hero h2, .contact-hero h3, .contact-hero p,
-.events-hero h1, .events-hero h2, .events-hero h3, .events-hero p,
-.get-involved-hero h1, .get-involved-hero h2, .get-involved-hero h3, .get-involved-hero p,
-.donate-hero h1, .donate-hero h2, .donate-hero h3, .donate-hero p {
-  color: #ffffff !important;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.6); /* improves readability over bright areas */
-}
-
-/* ---------------- Navbar ---------------- */
+/* =========================
+   NAVBAR
+========================= */
 .navbar {
-  background-color: #05A5A4; /* primary logo color */
+  background-color: var(--teal);
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 100;
-  height: 80px; /* fixed navbar height */
+  height: 80px;
   display: flex;
-  align-items: center; /* vertically center content */
+  align-items: center;
 }
 
-/* Container inside navbar */
 .nav-container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
 }
 
-/* Logo size */
-.nav-logo img {
-  height: 70px; /* increase logo size */
+.nav-logo img,
+.logo-img {
+  height: 70px;
   width: auto;
   object-fit: contain;
   display: block;
 }
 
-/* Menu links */
 .nav-menu {
   display: flex;
   list-style: none;
   gap: 20px;
-}
-
-.nav-menu li {
   margin: 0;
+  padding: 0;
 }
 
 .nav-link {
   text-decoration: none;
-  color: #ffffff; /* white text for contrast */
+  color: #fff;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: #B60284; /* accent pink color */
-}
-/* ---------- FINAL FIXED MOBILE MENU ---------- */
-@media (max-width: 768px) {
-
-  /* Show hamburger button */
-  .hamburger {
-    display: flex !important;
-    z-index: 200; /* make sure it's clickable */
-  }
-
-  .hamburger .bar {
-    background-color: #ffffff !important;
-  }
-
-  /* Mobile dropdown */
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    background-color: #05A5A4;
-    position: absolute;
-    top: 80px; /* below navbar */
-    right: 20px;
-    width: 220px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    z-index: 300; /* ⭐ MAKE IT APPEAR ABOVE EVERYTHING */
-  }
-
-  .nav-menu.active {
-    display: flex !important;
-  }
-
-  .nav-link {
-    color: #ffffff !important;
-    padding: 12px 0;
-  }
-
-  .nav-link:hover {
-    color: #B60284 !important;
-  }
+  color: var(--pink);
 }
 
-/* ---------------- Hero Section ---------------- */
-.hero, .programs-hero, .contact-hero,  .events-hero{
+/* Hamburger default (hidden on desktop) */
+.hamburger { display: none; }
+.hamburger .bar { background-color: #fff; }
+
+/* =========================
+   HERO SECTIONS (UNIFIED)
+========================= */
+.hero,
+.programs-hero,
+.contact-hero,
+.events-hero,
+.donate-hero,
+.get-involved-hero,
+.blog-hero,
+.involvement-hero,
+.about-hero {
   position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: #fff;
   text-align: center;
-  color: white;
   overflow: hidden;
 }
 
+/* ✅ Keep home hero full screen */
 .hero {
-  background: url("images/img001.jpg") center center/cover no-repeat;
+  height: 100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.programs-hero {
-  background: url("images/PHOTO-2025-09-04-14-25-40.jpg") center center/cover no-repeat;
-  padding: 120px 20px;
+/* ✅ Keep other heroes tall enough (not “cut”) */
+.programs-hero,
+.contact-hero,
+.events-hero,
+.donate-hero,
+.get-involved-hero,
+.blog-hero,
+.involvement-hero,
+.about-hero {
+  min-height: 520px;        /* was 400px, this prevents the “half cut” look */
+  padding: 140px 20px;      /* gives breathing room under navbar */
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.contact-hero {
-  background: url("images/PHOTO-2025-09-04-14-17-48.jpg") center center/cover no-repeat;
-  padding: 120px 20px;
-}
-.events-hero {
-  background: url("images/PHOTO-2025-09-04-14-17-56.jpg") center center/cover no-repeat;
-  padding: 120px 20px;
-}
-.donate-hero {
-  background: url("images/PHOTO-2025-09-04-14-17-56.jpg") center center/cover no-repeat;
-  padding: 120px 20px;
-  text-align: center;
-  position: relative;
-}
-
-.hero-overlay,
+/* overlay for ALL heroes */
+.hero::before,
 .programs-hero::before,
-.contact-hero::before {
+.contact-hero::before,
+.events-hero::before,
+.donate-hero::before,
+.get-involved-hero::before,
+.blog-hero::before,
+.involvement-hero::before,
+.about-hero::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  inset: 0;
   background: rgba(0,0,0,0.5);
   z-index: 1;
 }
 
-.hero-container,
+/* content sits above overlay */
+.hero .container,
 .programs-hero .container,
-.contact-hero .container {
+.contact-hero .container,
+.events-hero .container,
+.donate-hero .container,
+.get-involved-hero .container,
+.blog-hero .container,
+.involvement-hero .container,
+.about-hero .container,
+.hero-container,
+.events-hero-content {
   position: relative;
   z-index: 2;
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
-.hero-title, .programs-hero h1, .contact-hero h1 {
+/* text readability */
+.hero h1, .hero p,
+.programs-hero h1, .programs-hero p,
+.contact-hero h1, .contact-hero p,
+.events-hero h1, .events-hero p,
+.donate-hero h1, .donate-hero p,
+.get-involved-hero h1, .get-involved-hero p,
+.blog-hero h1, .blog-hero p,
+.involvement-hero h1, .involvement-hero p,
+.about-hero h1, .about-hero p {
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+/* hero backgrounds */
+.hero { background: url("images/img001.jpg") center/cover no-repeat; }
+.programs-hero { background: url("images/PHOTO-2025-09-04-14-25-40.jpg") center/cover no-repeat; }
+.blog-hero { background: url("images/justing.jpg") center/cover no-repeat; }
+.contact-hero { background: url("images/PHOTO-2025-09-04-14-17-48.jpg") center/cover no-repeat; }
+.events-hero { background: url("images/harakati.jpg") center/cover no-repeat; }
+.donate-hero { background: url("images/PHOTO-2025-09-04-14-17-56.jpg") center/cover no-repeat; }
+.get-involved-hero { background: url("images/laugh.jpg") center/cover no-repeat; }
+.involvement-hero { background: url("images/laugh.jpg") center/cover no-repeat; }
+.about-hero { background: url("images/about-hero.jpg") center/cover no-repeat; }
+
+/* titles */
+.hero-title,
+.programs-hero h1,
+.contact-hero h1,
+.events-hero h1,
+.donate-hero h1,
+.get-involved-hero h1,
+.about-hero h1 {
   font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
 
-.hero-subtitle, .programs-hero p, .contact-hero p {
+.hero-subtitle,
+.programs-hero p,
+.contact-hero p,
+.events-hero p,
+.donate-hero p,
+.get-involved-hero p,
+.about-hero p {
   font-size: 1.1rem;
-  line-height: 1.5;
-  margin-bottom: 2rem;
+  line-height: 1.6;
+  margin-bottom: 0;
 }
 
-.cta-button {
-  background-color: #ff7b00;
-  color: white;
+/* =========================
+   BUTTONS (ONE SYSTEM)
+========================= */
+.btn,
+.cta-button,
+.donate-btn {
+  display: inline-block;
   padding: 0.9rem 2.2rem;
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
-  transition: background 0.3s ease;
+  transition: 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
-.cta-button:hover {
-  background-color: #ff9e3d;
+.cta-button {
+  background-color: var(--orange);
+  color: #fff;
 }
+.cta-button:hover { filter: brightness(1.08); }
 
-/* ---------------- Stats Section ---------------- */
-.stats-section {
-  padding: 80px 20px;
+.donate-btn {
+  background-color: var(--orange);
+  color: #fff;
 }
+.donate-btn:hover { filter: brightness(1.08); }
 
-.stats-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
+/* CTA section buttons variants */
+.cta-button.primary { background-color: #222; color:#fff; }
+.cta-button.primary:hover { background-color:#555; }
+.cta-button.secondary { background-color:#fff; color:#222; border:2px solid #222; }
+.cta-button.secondary:hover { background-color:#f9f9f9; }
 
-.stats-header h2 {
-  font-size: 2rem;
-}
-
-.stats-grid, .impact-grid {
+/* =========================
+   COMMON CARD GRIDS
+========================= */
+.stats-grid,
+.impact-grid,
+.why-us-grid,
+.vm-grid,
+.team-grid,
+.impact-stats,
+.donation-options,
+.giving-options,
+.usage-breakdown {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -282,115 +270,493 @@ p {
   margin-top: 30px;
 }
 
-.stat-card, .impact-card {
-  background: #fff;
+.stat-card,
+.impact-card,
+.why-card,
+.vm-card,
+.team-card,
+.impact-stat,
+.donation-card,
+.giving-card,
+.transparency-card,
+.usage-item {
+  background: var(--card);
   padding: 25px 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   text-align: center;
   flex: 1 1 250px;
 }
 
-.stat-number, .impact-number {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #ff7b00;
-}
-
-/* ---------------- Why Us Section ---------------- */
-.why-us-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.why-card {
-  flex: 1 1 250px;
-  background: white;
-  padding: 30px 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-  text-align: center;
+.why-card,
+.vm-card,
+.team-card,
+.donation-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.why-card:hover {
+.why-card:hover,
+.vm-card:hover,
+.team-card:hover,
+.donation-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+  box-shadow: var(--shadow-hover);
+}
+
+.stat-number,
+.impact-number,
+.impact-stat .stat-number,
+.usage-percentage {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+/* =========================
+   PROGRAMS + GET INVOLVED “BOXES” (FIX)
+========================= */
+
+/* ✅ Works for Programs page wrapper (your HTML uses: <section class="programs-section container"> ) */
+.programs-section,
+.get-involved-section,
+.involvement-section,
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 60px 20px;
+  align-items: stretch;
+}
+
+/* ✅ Card style */
+.program-card,
+.get-involved-card,
+.involvement-card,
+.card-box {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.program-card:hover,
+.get-involved-card:hover,
+.involvement-card:hover,
+.card-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* ✅ Content inside cards */
+.program-content,
+.get-involved-content,
+.involvement-content,
+.card-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.program-content p,
+.get-involved-content p,
+.involvement-content p,
+.card-content p {
+  flex: 1; /* pushes the button down */
+}
+
+.program-content .cta-button,
+.get-involved-content .cta-button,
+.involvement-content .cta-button,
+.card-content .cta-button {
+  align-self: flex-start;
+}
+
+/* ✅ Optional: hide images (remove if you want images visible) */
+.program-img,
+.get-involved-img,
+.involvement-img {
+  display: none;
+}
+
+/* =========================
+   CTA (BOXED) - safe on all pages
+========================= */
+.cta-section{
+  background: var(--orange);
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: var(--radius);
+  margin: 50px auto;
+  max-width: 1200px;
+}
+
+.cta-section h2,
+.cta-section p{
+  color: #fff;
+}
+
+/* =========================
+   CTA BANNER (FULL WIDTH) - ONLY when class is cta-banner
+========================= */
+.cta-banner{
+  background: var(--orange);
+  padding: 80px 20px;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+}
+
+.cta-banner .cta-content{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cta-banner h2,
+.cta-banner p{
+  color: #fff;
+}
+
+/* Buttons layout inside BOTH */
+.cta-section .cta-buttons,
+.cta-banner .cta-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 
+/* =========================
+   FOOTER (FIXED + CONSISTENT)
+========================= */
+.footer {
+  background: #222;
+  color: #fff;
+  padding: 40px 20px;
+}
 
-/* ---------------- Story Section ---------------- */
-.story-section {
-  max-width: 900px;
-  margin: 0 auto;
+.footer a { color:#fff; text-decoration:none; }
+.footer a:hover { color: var(--orange); }
+
+.footer-content {
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  justify-content: space-between;
+  margin-bottom:20px;
+}
+
+.footer-section { flex: 1 1 200px; }
+
+.footer-bottom { text-align:center; font-size:0.9rem; }
+
+/* ✅ Force footer text to be white (global p color was overriding) */
+.footer h1,
+.footer h2,
+.footer h3,
+.footer h4,
+.footer h5,
+.footer h6,
+.footer p {
+  color: #fff;
+}
+
+/* ✅ Remove bullets + weird spacing in footer lists */
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer li {
+  margin: 8px 0;
+}
+
+/* Social links */
+.footer .social-links {
+  display:flex;
+  gap:15px;
+  margin-top:10px;
+  justify-content:center;
+}
+
+.footer .social-links a {
+  color:#fff;
+  font-weight:500;
+  transition: color 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.footer .social-links a:hover { color: var(--orange); }
+
+/* =========================
+   EVENTS PAGE (NO IMAGES)
+========================= */
+.events-section,
+.past-events-section,
+.featured-event-section,
+.registration-section {
   padding: 60px 20px;
 }
 
-.story-section p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #333;
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #222;
+}
+
+.events-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.event-card,
+.featured-event-card {
+  background:#fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover,
+.featured-event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ✅ Hide any event images so there is NO blank space */
+.event-card img,
+.featured-event-card img,
+.event-image,
+.event-img {
+  display:none !important;
+}
+
+/* =========================
+   BLOG (NO IMAGES)
+========================= */
+.blog-section {
+  padding: 60px 20px;
+  background-color: var(--bg);
+}
+
+#blog-posts {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog-card {
+  background:#fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+.blog-card img { display:none !important; }
+
+.blog-content {
+  padding: 20px;
+  text-align:left;
+}
+
+.read-more { color:#007bff; cursor:pointer; font-weight:500; }
+
+/* Modal */
+.modal {
+  display:none;
+  position: fixed;
+  inset:0;
+  background: rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+  z-index: 999;
+}
+.modal-content {
+  background:#fff;
+  padding:30px;
+  border-radius:12px;
+  max-width:800px;
+  width:90%;
+  max-height:90%;
+  overflow-y:auto;
+  position:relative;
+}
+.close-btn {
+  position:absolute;
+  top:15px;
+  right:20px;
+  font-size:24px;
+  cursor:pointer;
+}
+
+/* =========================
+   PRODUCT PAGE
+========================= */
+.product-hero {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.product-image {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.product-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.product-details {
+  flex: 2 1 400px;
+}
+
+.product-title {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: var(--teal);
+}
+
+.product-tagline {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.product-price {
+  font-size: 20px;
+  font-weight: bold;
   margin-bottom: 20px;
 }
 
-/* ---------------- Vision & Mission ---------------- */
-.vm-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 30px;
+.product-features {
+  margin-bottom: 25px;
+  list-style: none;
+  padding-left: 0;
 }
 
-.vm-card {
-  flex: 1 1 300px;
-  background: white;
-  padding: 30px 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.buy-btn {
+  display: inline-block;
+  background-color: var(--teal);
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-bottom: 25px;
+  transition: background-color 0.3s ease;
 }
 
-.vm-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+.buy-btn:hover {
+  background-color: var(--pink);
 }
 
-/* ---------------- Values Section ---------------- */
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
+.payment-box {
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
-.value-card {
-  background: white;
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  background-color: #fff;
   padding: 25px 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  z-index: 1000;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.value-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+.popup .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
-.value-card h3 {
-  margin-bottom: 10px;
+.whatsapp-link {
+  display: inline-block;
+  background-color: #25D366;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
 }
 
-/* ---------------- Team Section ---------------- */
-/* ---------------- Team Section ---------------- */
+.whatsapp-link:hover {
+  background-color: #1ebe57;
+}
+/* ---------- VALUES: always a grid of cards ---------- */
+.values-section {
+  padding: 60px 20px;
+}
+
+.values-section .values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.values-section .value-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.values-section .value-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+}
+
+.values-section .value-card p {
+  margin: 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   TEAM SECTION (IMAGE VERSION)
+   If you use <img> tags in team cards
+========================= */
+
 .team-section {
-  background: #f9f9f9;
+  background: var(--bg);
   padding: 60px 20px;
   text-align: center;
 }
@@ -401,1436 +767,311 @@ p {
   color: #1f2933;
 }
 
-/* Grid */
-.team-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-/* Card */
 .team-card {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 16px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-  width: 280px; /* wider for portraits */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
+  width: 280px;
 }
 
-.team-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
-}
-
-/* Image — FIXED (no head cutting) */
 .team-card img {
   width: 100%;
   height: 260px;
-  object-fit: contain;          /* preserves faces */
-  object-position: center top;  /* protects heads */
+
+  /* keeps the full image visible (no chopping) */
+  object-fit: contain;
+
+  /* keeps the top visible in case the photo sits low */
+  object-position: center top;
+
   border-radius: 12px;
   background-color: #f3f4f6;
   margin-bottom: 16px;
 }
 
-/* Name */
 .team-card h3 {
-  color: #4b1d6b;     /* muted purple */
+  color: #4b1d6b;
   font-weight: 600;
   font-size: 1.1rem;
-  margin-bottom: 6px;
+  margin: 0 0 6px 0;
 }
 
-/* Role */
 .team-card .role {
-  color: #006d5b;     /* muted teal */
+  color: #006d5b;
   font-size: 0.95rem;
   margin-bottom: 8px;
 }
 
-/* Optional description text */
 .team-card p {
   color: #555;
   font-size: 0.9rem;
+  margin: 0;
 }
 
 
-
-/* ---------------- CTA Section ---------------- */
-.cta-section {
-  background-color: #ff7b00;
-  text-align: center;
-  padding: 60px 20px;
-  border-radius: 16px;
-  margin: 50px auto;
-}
-
-.cta-section h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #fff;
-}
-
-.cta-section p {
-  color: #fff;
-  margin-bottom: 25px;
-}
-
-.cta-buttons a {
-  padding: 12px 25px;
-  margin: 5px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s ease;
-}
-
-.cta-button.primary {
-  background-color: #222;
-  color: #fff;
-}
-
-.cta-button.primary:hover {
-  background-color: #555;
-}
-
-.cta-button.secondary {
-  background-color: #fff;
-  color: #222;
-  border: 2px solid #222;
-}
-
-.cta-button.secondary:hover {
-  background-color: #f9f9f9;
-}
-
-/* ---------------- Footer ---------------- */
-.footer {
-  background: #222;
-  color: #fff;
-  padding: 40px 20px;
-}
-
-.footer a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  color: #ff7b00;
-}
-
-.footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.footer-section {
-  flex: 1 1 200px;
-}
-
-.footer-bottom {
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-/* ---------------- Responsive ---------------- */
-@media (max-width: 1024px) {
-  .vm-grid, .values-grid, .team-grid, .why-us-grid, .stats-grid, .impact-grid {
-    flex-direction: column;
-    align-items: center;
-  }
+   /* =========================
+   RESPONSIVE NAV + LAYOUT
+========================= */
+@media (max-width: 768px) {
+  .hamburger { display:flex; z-index: 200; }
 
   .nav-menu {
-    display: none;
-    flex-direction: column;
-    gap: 15px;
-    background: #fff;
-    position: absolute;
-    top: 80px;
-    right: 20px;
-    width: 200px;
-    padding: 20px;
+    display:none;
+    flex-direction:column;
+    background: var(--teal);
+    position:absolute;
+    top:80px;
+    right:20px;
+    width:220px;
+    padding:15px;
     border-radius: 10px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 300;
   }
 
-  .hamburger {
-    display: flex;
+  .nav-menu.active { display:flex; }
+  .nav-link { color:#fff; padding:12px 0; }
+  .nav-link:hover { color: var(--pink); }
+
+  /* ✅ Programs + Get Involved grid becomes 1 column on mobile */
+  .programs-section,
+  .get-involved-section,
+  .involvement-section,
+  .card-grid {
+    grid-template-columns: 1fr;
+    padding: 40px 16px;
   }
 
-  .page-header h1 {
-    font-size: 2.2rem;
-  }
-
-  .page-header p,
-  .hero-subtitle,
-  .programs-hero p,
-  .contact-hero p {
-    font-size: 1rem;
-  }
-}
-/* Donate Hero */
-.donate-hero {
-  background-image: url("images/PHOTO-2025-09-04-14-17-56.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  padding: 120px 20px;
-  text-align: center;
-  position: relative;
-}
-.donate-hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: 1;
-}
-
-.donate-hero .container {
-  position: relative;
-  z-index: 2;
-}
-
-/* Impact Section */
-.impact-stats {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.impact-stat {
-  background: white;
-  padding: 25px;
-  border-radius: 16px;
-  text-align: center;
-  flex: 1 1 250px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-}
-
-.impact-stat .stat-number {
-  font-size: 2rem;
-  color: #ff7b00;
-  font-weight: 700;
-}
-
-/* Donation Cards */
-.donation-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.donation-card {
-  background: white;
-  padding: 30px 20px;
-  border-radius: 16px;
-  text-align: center;
-  flex: 1 1 300px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-}
-
-.donate-btn {
-  display: inline-block;
-  margin-top: 15px;
-  background-color: #ff7b00;
-  color: #fff;
-  padding: 12px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s ease;
-}
-
-.donate-btn:hover {
-  background-color: #ff9e3d;
-}
-
-/* Other Giving & Transparency */
-.giving-options, .usage-breakdown {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.giving-card, .transparency-card {
-  background: white;
-  padding: 25px;
-  border-radius: 16px;
-  flex: 1 1 250px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .impact-stats,
-  .donation-options,
-  .giving-options,
-  .usage-breakdown {
+  /* Product page stacks nicely */
+  .product-container {
     flex-direction: column;
     align-items: center;
   }
 }
-/* =======================
-   Donation Page Styles
-======================= */
 
-/* Container & Grid */
-.donation-section .container {
+@media (max-width: 1024px) {
+  .vm-grid, .team-grid, .why-us-grid, .stats-grid, .impact-grid,
+  .impact-stats, .donation-options, .giving-options, .usage-breakdown {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+/* =========================
+   GET INVOLVED – CARD GRID (compact + horizontal)
+========================= */
+
+/* The wrapper section that holds all the cards */
+.get-involved-section,
+.involvement-section,
+.opportunities-section {
+  padding: 60px 20px;
+}
+
+/* The container that holds the cards (make it a grid) */
+.get-involved-grid,
+.involvement-grid,
+.opportunities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+/* Each “box” card */
+.get-involved-card,
+.involvement-card,
+.opportunity-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  margin-top: 2rem;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
-.donation-card {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 1.5rem;
-  flex: 1 1 300px;
-  max-width: 350px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Hover = cute */
+.get-involved-card:hover,
+.involvement-card:hover,
+.opportunity-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
 }
 
-.donation-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+/* Tighten headings + spacing so they don’t look like giant essays */
+.get-involved-card h3,
+.involvement-card h3,
+.opportunity-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
 }
 
-/* Icons */
-.donation-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-/* Titles */
-.donation-card h3 {
-  margin: 0.5rem 0;
-  font-size: 1.2rem;
+.get-involved-card p,
+.involvement-card p,
+.opportunity-card p {
+  margin: 0;
   color: #333;
 }
 
-/* Amount buttons */
-.amount-selection {
-  margin: 1rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
+/* Lists inside cards: keep them neat */
+.get-involved-card ul,
+.involvement-card ul,
+.opportunity-card ul {
+  margin: 0;
+  padding-left: 18px;
 }
 
-.amount-btn {
-  padding: 0.5rem 1rem;
-  border: 2px solid #0077cc;
-  border-radius: 6px;
-  background-color: #fff;
-  color: #0077cc;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.3s;
+/* Button sits nicely at bottom */
+.get-involved-card .cta-button,
+.involvement-card .cta-button,
+.opportunity-card .cta-button {
+  margin-top: auto;
+  align-self: flex-start;
 }
 
-.amount-btn:hover {
-  background-color: #0077cc;
-  color: #fff;
-}
-
-.amount-btn.active {
-  background-color: #0077cc;
-  color: #fff;
-  border-color: #005fa3;
-}
-
-/* Custom amount input */
-.custom-amount {
-  padding: 0.5rem;
-  border-radius: 6px;
-  border: 2px solid #ccc;
-  width: 100px;
-  text-align: center;
-}
-
-.custom-amount:focus {
-  outline: none;
-  border-color: #0077cc;
-}
-
-/* Donate button */
-.donate-btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  background-color: #0077cc;
-  color: #fff;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.3s;
-}
-
-.donate-btn:hover {
-  background-color: #005fa3;
-}
-
-/* Responsive */
+/* Mobile: still stacked but not massive */
 @media (max-width: 768px) {
-  .donation-card {
-    max-width: 100%;
-  }
-
-  .amount-selection {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .custom-amount {
-    width: 80%;
+  .get-involved-grid,
+  .involvement-grid,
+  .opportunities-grid {
+    grid-template-columns: 1fr;
   }
 }
-/* -------------------- EVENTS PAGE STYLES -------------------- */
-/* -------------------- EVENTS PAGE HERO -------------------- */
-.events-hero {
-    background-image: url("images/PHOTO-2025-09-11-09-32-39\(2\).jpg"); /* make sure path is correct */
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    padding: 120px 20px;
-    text-align: center;
-    min-height: 400px; /* ensures the hero is visible */
-}
-
-
-
-.events-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* dark overlay */
-  z-index: 1;
-}
-
-.events-hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.events-hero h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.events-hero p {
-  font-size: 1.1rem;
-}
-
-/* Container grid for upcoming & past events */
-.events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
-}
-
-/* Event cards */
-.event-card,
-.featured-event-card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    overflow: hidden;
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.event-card:hover,
-.featured-event-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-/* Event images */
-.event-card img.event-image,
-.featured-event-card img.event-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* Event content */
-.event-card-content,
-.featured-event-card .event-details {
-    margin-top: 15px;
-}
-
-.event-card h4,
-.featured-event-card h3 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    color: #222;
-}
-
-.event-meta p {
-    margin: 4px 0;
-    font-size: 0.9rem;
-    color: #555;
-}
-
-.event-card p,
-.featured-event-card p {
-    margin: 10px 0;
-    font-size: 0.95rem;
-    color: #444;
-}
-
-/* Featured event topics */
-.event-topics h4 {
-    margin-top: 15px;
-    font-size: 1rem;
-    color: #008080;
-}
-
-.event-topics ul {
-    padding-left: 20px;
-    margin-top: 5px;
-}
-
-.event-topics li {
-    margin-bottom: 5px;
-}
-
-/* Registration closed / completed labels */
-.registration-closed,
-.event-completed {
-    display: inline-block;
-    background-color: #e74c3c;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-}
-
-/* Section titles */
-.featured-event-section,
-.events-section,
-.past-events-section,
-.registration-section {
-    padding: 60px 20px;
-}
-
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    text-align: center;
-    color: #222;
-}
-
-/* Registration form */
-.registration-form {
-    display: grid;
-    gap: 15px;
-    background-color: #f8f8f8;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.form-row {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.form-group {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
-    margin-bottom: 5px;
-    font-weight: 500;
-    color: #333;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 0.95rem;
-    outline: none;
-    transition: border 0.2s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: #008080;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 80px;
-}
-
-/* Submit button */
-.submit-btn {
-    background-color: #008080;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s ease;
-}
-
-.submit-btn:hover {
-    background-color: #006666;
-}
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-    .form-row {
-        flex-direction: column;
-    }
-    .event-card img.event-image,
-    .featured-event-card img.event-image {
-        height: 150px;
-    }
-}
-/* -------------------- GET INVOLVED PAGE -------------------- */
-
-/* Grid for involvement cards */
-.involvement-hero {
-    background-image: url('images/PHOTO-2025-09-04-14-24-35.jpg'); /* your image path */
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    padding: 120px 20px;
-    text-align: center;
-    min-height: 400px;
-}
-
-.involvement-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 60px; /* larger gap between cards */
-    margin-top: 60px;
-}
-
-/* Each card */
-.involvement-card {
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 40px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-/* Card hover effect */
-.involvement-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-/* Card header */
-.involvement-header {
-    margin-bottom: 25px;
-}
-
-.involvement-header h3 {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-}
-
-.involvement-header p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.6;
-}
-
-/* Content inside card */
-.involvement-content p {
-    font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-/* Lists inside card */
-.involvement-list {
-    list-style-type: disc;
-    padding-left: 30px;
-    margin-bottom: 25px;
-}
-
-.involvement-list li {
-    margin-bottom: 10px;
-    line-height: 1.6;
-}
-
-/* CTA buttons */
-.cta-button {
-    display: inline-block;
-    padding: 12px 25px;
-    font-size: 1rem;
-    border-radius: 8px;
-    text-decoration: none;
-    text-align: center;
-    margin-top: 10px;
-}
-
-/* Space around each section */
-.involvement-section {
-    padding: 80px 20px;
-}
-
-/* Hero section padding */
-.involvement-hero {
-    padding: 120px 20px;
-    text-align: center;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .involvement-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .involvement-card {
-        padding: 25px;
-    }
-}
-/* ===== Donate Page Styling ===== */
-
-/* Hero Section */
-.donate-hero {
-    background-image: url("images/PHOTO-2025-09-04-14-17-56.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    padding: 120px 20px;
-    text-align: center;
-    min-height: 400px; /* important so you can see the image */
-}
-
-
-.donate-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.donate-hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.8;
-}
-
-/* Section Titles */
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-/* Donation Cards Section */
-.donation-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.donation-card {
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 25px;
-    width: 300px;
-    text-align: center;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.donation-card .donation-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-
-.donation-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.donation-card p {
-    line-height: 1.6;
-}
-
-/* Buttons */
-.donate-btn {
-    display: inline-block;
-    padding: 12px 25px;
-    margin-top: 15px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: #fff;
-    background-color: #ff6b6b;
-    transition: background 0.3s;
-}
-
-.donate-btn:hover {
-    background-color: #ff4757;
-}
-
-/* Mobile Money Instructions */
-.mobile-money-instructions {
-    margin-top: 15px;
-    text-align: left;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-.mobile-money-instructions ol {
-    padding-left: 20px;
-}
-
-/* Other Giving Options */
-.giving-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.giving-card {
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 25px;
-    width: 300px;
-    text-align: center;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-}
-
-.giving-card .giving-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-
-.transparency-section {
-    padding: 60px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 40px;
-}
-
-/* Horizontal Cards */
-.usage-breakdown {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
-
-.usage-item {
-    background-color: #fff;
-    padding: 25px 20px;
-    border-radius: 12px;
-    width: 220px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.usage-percentage {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #ff6b6b;
-    margin-bottom: 10px;
-}
-
-.usage-description h4 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
-.usage-description p {
-    font-size: 0.95rem;
-    line-height: 1.4;
-}
-/* ===== Contact Page ===== */
+/* CONTACT LAYOUT */
 .contact-section {
-    padding: 60px 20px;
-    background-color: #f9f9f9;
+  padding: 60px 20px;
 }
 
 .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    align-items: start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
 }
 
-.contact-info {
-    background-color: #fff;
-    padding: 30px 20px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-}
-
-.contact-info h2 {
-    margin-bottom: 20px;
-    font-size: 1.8rem;
+.contact-info,
+.contact-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
 }
 
 .contact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 15px;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
-.contact-icon {
-    font-size: 1.8rem;
+.contact-item span {
+  font-size: 18px;
 }
 
-.contact-details h4 {
-    margin: 0;
-    font-size: 1.1rem;
-}
-
-.contact-details p {
-    margin: 2px 0 0 0;
-}
-
-/* Ensure the contact form container centers properly */
-.contact-form {
-  max-width: 500px; /* constrains form width */
-  margin: 0 auto; /* centers horizontally */
-}
-
-/* Optional: make the form itself take full width of its container */
-.contact-form form {
-  width: 100%;
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  box-sizing: border-box; /* ensures padding doesn't break layout */
-}
-
-/* Keep spacing between form fields */
-.contact-form .form-group {
-  margin-bottom: 15px;
-}
-
-/* Labels styling */
-.contact-form label {
-  font-weight: 500;
+.social-media a {
   display: block;
-  margin-bottom: 5px;
-  color: #000000;
+  margin-top: 8px;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-/* Inputs, selects, textareas */
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
   width: 100%;
-  padding: 10px 12px;
+  padding: 10px;
+  margin-bottom: 14px;
+  border-radius: 6px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  font-family: "Poppins", sans-serif;
-  font-size: 0.95rem;
-  color: #000;
-  box-sizing: border-box; /* ensures consistent sizing */
 }
 
-/* Focus state */
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: #05A5A4;
-  box-shadow: 0 0 5px rgba(5,165,164,0.3);
-}
-
-/* Submit button */
-.contact-form button.submit-btn {
-  background-color: #05A5A4;
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background: var(--teal);
   color: #fff;
   border: none;
-  padding: 12px 20px;
-  font-size: 1rem;
-  font-weight: 600;
   border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-  width: 100%; /* make button same width as inputs */
 }
 
-.contact-form button.submit-btn:hover {
-  background-color: #B60284;
-}
-
-/* FAQ Section */
+/* FAQ */
 .faq-section {
-    padding: 60px 20px;
-    background-color: #fff;
+  padding: 60px 20px;
 }
 
-.faq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+.faq-item {
+  margin-bottom: 20px;
 }
 
-.faq-item h3 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
+/* MOBILE */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* CONTACT – 3 COLUMN LAYOUT (RESTORED) */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  align-items: start;
 }
 
-.faq-item p {
-    margin: 0;
-    line-height: 1.5;
-}
-/* --- Programs Section --- */
-.programs-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    padding: 60px 20px;
-}
-
-.program-card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.program-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-}
-
-.program-card img.program-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.program-content {
-    padding: 20px;
-}
-
-.program-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #1a1a1a;
-}
-
-.program-content p {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #FF6B6B;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: background 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #ff4b4b;
-}
-
-/* --- Invite Section --- */
-.invite-school {
-    background-color: #FFFAF0;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.invite-school h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-.invite-school p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 25px;
-}
-
-/* --- Workshops & Events --- */
-.workshops-events {
-    padding: 60px 20px;
-}
-
-.workshops-events .section-title {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.event-card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.event-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-}
-
-.event-card img.event-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-
-.event-card h3 {
-    font-size: 1.3rem;
-    margin: 10px 20px 5px;
-    color: #1a1a1a;
-}
-
-.event-card p {
-    font-size: 0.95rem;
-    margin: 0 20px 15px;
-    color: #555;
-}
-
-/* --- Program Impact Section --- */
-.impact-section {
-    background-color: #f4f6f8;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.impact-section .section-title {
-    font-size: 2rem;
-    margin-bottom: 40px;
-}
-
-.impact-stats {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-}
-
-.impact-stat .stat-number {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #FF6B6B;
-}
-
-.impact-stat p {
-    font-size: 1rem;
-    color: #555;
-    margin-top: 5px;
-}
-
-/* --- CTA Section --- */
-.cta-section {
-    background-color: #FFFAF0;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.cta-section h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-.cta-section p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 25px;
-}
-
-.cta-buttons a {
-    margin: 0 10px;
-}
-
-.cta-button.primary {
-    background-color: #FF6B6B;
-}
-
-.cta-button.secondary {
-    background-color: #4B7BFF;
-}
-
-/* --- Footer Social Links --- */
-/* FIXED: Now matches the main footer color scheme */
-.footer .social-links {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    margin-top: 10px;
-    justify-content: center; /* centers icons nicely */
-}
-
-.footer .social-links a {
-    text-decoration: none;
-    color: #ffffff;           /* white - consistent with footer */
-    font-weight: 500;
-    transition: color 0.3s ease;
-    font-size: 1.1rem;
-}
-
-.footer .social-links a:hover {
-    color: #ff7b00;           /* orange - consistent with footer hover */
-}
-
-/* Blog Hero */
-.blog-section {
-    padding: 60px 20px;
-    background-color: #f9f9f9;
-}
-
-#blog-posts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.blog-card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.blog-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.blog-content {
-    padding: 20px;
-    text-align: left; /* Important: left align the text */
-}
-
-.blog-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.blog-content .blog-meta {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.blog-content p {
-    line-height: 1.6;
-    color: #333;
-}
-
-.read-more {
-    color: #007bff;
-    cursor: pointer;
-    font-weight: 500;
-}
-/* Modal */
-.modal {
-    display: none; /* hidden by default */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6); /* dim background */
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-}
-
-.modal-content {
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    max-width: 800px;
-    width: 90%;
-    max-height: 90%;
-    overflow-y: auto; /* scroll if too long */
-    position: relative;
-}
-
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 24px;
-    cursor: pointer;
-}
-/* =============================
-   ABOUT US PAGE STYLING
-============================= */
-
-.about-hero {
-  position: relative;
-  background: url("images/about-hero.jpg") center center/cover no-repeat;
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-}
-
-.about-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 1;
-}
-
-.about-hero .container {
-  position: relative;
-  z-index: 2;
-}
-
-.about-hero h1 {
-  font-size: 3rem;
-  margin-bottom: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.about-hero p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* ---------- Team Section ---------- */
-.team-card {
+/* FAQ column styling */
+.contact-faq {
   background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* Mobile: stack cleanly */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* SOCIAL ICON LINKS (Contact page) */
+.social-media-links {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* keeps text at bottom */
-  height: 350px; /* control card height */
-  color: #fff; /* text will show over image */
-  position: relative;
-  overflow: hidden;
+  gap: 12px;
+  margin-top: 10px;
 }
 
-/* Background images for each member */
-.team-justine {
-  background: url('justine.jpg') center center/cover no-repeat;
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.2;
 }
 
-.team-naava {
-  background: url('naava.jpg') center center/cover no-repeat;
+.social-link i {
+  font-size: 18px;
+  width: 22px;        /* keeps the icons aligned */
+  text-align: center;
+  color: var(--teal);
 }
 
-/* Optional overlay for text readability */
-.team-card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.4);
-  z-index: 1;
+.social-link:hover {
+  color: var(--pink);
 }
 
-/* Text styling over image */
-.team-card h3,
-.team-card p {
-  position: relative;
-  z-index: 2;
-  margin: 0;
-  padding: 0 10px;
+.social-link:hover i {
+  color: var(--pink);
+}
+/* =========================
+   DONATE — REMOVE USELESS OUTER WHITE BOXES
+   (keeps the 3 percentage cards)
+========================= */
+
+/* Kill the big wrapper card look on donate page sections */
+.transparency-card {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
 }
 
-.team-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 6px;
-  color: #B60284;
-}
-
-.team-card p {
-  font-size: 1rem;
-  color: #05A5A4;
-}
-
-/* Hover effect */
-.team-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-}

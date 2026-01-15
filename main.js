@@ -594,23 +594,25 @@ Thank you for supporting YADA-EXPERIENCE!`);
 // ---------------- Product Buy Now Popup ----------------
 const buyBtn = document.getElementById("buyNowBtn");
 const popup = document.getElementById("buyPopup");
-const closeBtn = document.querySelector(".popup .close");
 
-if(buyBtn && popup && closeBtn) {
-    buyBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        popup.style.display = "block";
-    });
+if (buyBtn && popup) {
+  const closeBtn = popup.querySelector(".close");
 
-    closeBtn.addEventListener('click', function() {
-        popup.style.display = "none";
-    });
+  buyBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    popup.style.display = "block";
+  });
 
-    window.addEventListener('click', function(event) {
-        if(event.target == popup) {
-            popup.style.display = "none";
-        }
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      popup.style.display = "none";
     });
+  }
+
+  // Close with Escape key
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") popup.style.display = "none";
+  });
 }
 
 }); // end DOMContentLoaded
