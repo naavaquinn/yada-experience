@@ -89,6 +89,21 @@ p { margin: 0 0 20px 0; color: var(--text); }
 /* Hamburger default (hidden on desktop) */
 .hamburger { display: none; }
 .hamburger .bar { background-color: #fff; }
+/* Make hamburger bars visible (you were only setting color) */
+.hamburger{
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.hamburger .bar{
+  width: 28px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  display: block;
+}
+
 
 /* =========================
    HERO SECTIONS (UNIFIED)
@@ -105,8 +120,85 @@ p { margin: 0 0 20px 0; color: var(--text); }
   position: relative;
   color: #fff;
   text-align: center;
+}
+
+/* Keep overflow hidden only for the OTHER banners (not home) */
+.programs-hero,
+.contact-hero,
+.events-hero,
+.donate-hero,
+.get-involved-hero,
+.blog-hero,
+.involvement-hero,
+.about-hero {
   overflow: hidden;
 }
+
+/* Home hero: don't clip sticky navbar/menu */
+.hero {
+  overflow: visible;
+}
+.hero,
+.programs-hero,
+.contact-hero,
+.events-hero,
+.donate-hero,
+.get-involved-hero,
+.blog-hero,
+.involvement-hero,
+.about-hero {
+  position: relative;
+  color: #fff;
+  text-align: center;
+}
+
+/* Keep overflow hidden only for the OTHER banners (not home) */
+.programs-hero,
+.contact-hero,
+.events-hero,
+.donate-hero,
+.get-involved-hero,
+.blog-hero,
+.involvement-hero,
+.about-hero {
+  overflow: hidden;
+}
+
+/* Home hero: don't clip sticky navbar/menu */
+.hero {
+  overflow: visible;
+}
+.hero,
+.programs-hero,
+.contact-hero,
+.events-hero,
+.donate-hero,
+.get-involved-hero,
+.blog-hero,
+.involvement-hero,
+.about-hero {
+  position: relative;
+  color: #fff;
+  text-align: center;
+}
+
+/* Keep overflow hidden only for the OTHER banners (not home) */
+.programs-hero,
+.contact-hero,
+.events-hero,
+.donate-hero,
+.get-involved-hero,
+.blog-hero,
+.involvement-hero,
+.about-hero {
+  overflow: hidden;
+}
+
+/* Home hero: don't clip sticky navbar/menu */
+.hero {
+  overflow: visible;
+}
+
 
 /* ✅ Keep home hero full screen */
 .hero {
