@@ -1299,7 +1299,369 @@ p { margin: 0 0 20px 0; color: var(--text); }
   background-color: var(--orange);
   color: #fff;
 }
+/* =========================
+   WHY US – ICON CARDS
+========================= */
 
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
 }
 
+.why-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* ICON */
+.why-card .card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 123, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.why-card .card-icon i {
+  font-size: 24px;
+  color: var(--orange);
+}
+
+/* =========================
+   ICON CARDS (Vision, Values, Why Us)
+========================= */
+
+.card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 123, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.card-icon i {
+  font-size: 24px;
+  color: var(--orange);
+}
+
+/* Center cards nicely */
+.vm-card,
+.value-card {
+  text-align: center;
+}
+
+/* =========================
+   WORKSHOPS & EVENTS ICON LISTS
+========================= */
+
+.event-icon {
+  font-size: 2.2rem;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.event-list li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 8px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.event-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+  font-weight: bold;
+}
+
+/* Unified card icon alignment */
+.program-icon,
+.event-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.program-icon i,
+.event-icon i {
+  font-size: 2.2rem;
+  color: var(--orange);
+}
+
+/* =========================
+   ORANGE CHECK ICON LISTS (GLOBAL)
+========================= */
+
+.program-card ul,
+.event-card ul,
+.get-involved-card ul,
+.involvement-card ul,
+.opportunity-card ul,
+.value-card ul,
+.why-card ul {
+  list-style: none;          /* remove black bullets */
+  padding-left: 0;
+  margin: 12px 0;
+}
+
+.program-card li,
+.event-card li,
+.get-involved-card li,
+.involvement-card li,
+.opportunity-card li,
+.value-card li,
+.why-card li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Orange tick */
+.program-card li::before,
+.event-card li::before,
+.get-involved-card li::before,
+.involvement-card li::before,
+.opportunity-card li::before,
+.value-card li::before,
+.why-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--orange);
+  font-weight: 700;
+}
+
+/* =========================
+   INVOLVEMENT ICONS (CUTER + ORANGE)
+========================= */
+
+.involvement-icon{
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: rgba(255, 123, 0, 0.12); /* soft orange */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--orange);               /* makes SVG orange via currentColor */
+  margin-bottom: 12px;
+}
+
+.involvement-icon svg{
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+/* =========================
+   UNIVERSAL CARD + ICON SYSTEM (Donation + Giving + Involvement)
+   Paste near bottom of styles.css
+========================= */
+
+/* Layout grids */
+.donation-options,
+.giving-options,
+.involvement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* Universal card */
+.donation-card,
+.giving-card,
+.involvement-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.donation-card:hover,
+.giving-card:hover,
+.involvement-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* Universal icon badge (works with emoji, <i>, or svg) */
+.donation-icon,
+.giving-icon,
+.involvement-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(255, 123, 0, 0.14);
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+/* Make SVGs inside icon badges use orange */
+.donation-icon svg,
+.giving-icon svg,
+.involvement-icon svg {
+  width: 26px;
+  height: 26px;
+  color: var(--orange);
+}
+
+/* Titles spacing */
+.donation-card h3,
+.giving-card h3,
+.involvement-card h3 {
+  margin: 6px 0 0;
+}
+
+/* CTA buttons inside these cards should sit nicely */
+.donation-card .donate-btn,
+.giving-card .cta-button,
+.involvement-card .cta-button {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* Make “other giving” section feel intentional */
+.other-giving-section {
+  padding: 80px 20px;
+  background: #f9f9f9;
+}
+
+/* Donation section background to match */
+.donation-section {
+  padding: 80px 20px;
+  background: #f9f9f9;
+}
+
+/* =========================
+   ORANGE TICK LISTS (use everywhere)
+========================= */
+
+/* Remove default bullets */
+.involvement-list,
+.program-list,
+.workshop-list,
+.donation-steps,
+.giving-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 12px 0 0;
+}
+
+/* Orange tick + spacing */
+.involvement-list li,
+.program-list li,
+.workshop-list li,
+.donation-steps li,
+.giving-list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+
+/* The tick icon */
+.involvement-list li::before,
+.program-list li::before,
+.workshop-list li::before,
+.donation-steps li::before,
+.giving-list li::before {
+  content: "✓";
+  color: var(--orange);
+  font-weight: 900;
+  margin-top: 2px;
+}
+
+/* Mobile spacing */
+@media (max-width: 768px) {
+  .donation-card,
+  .giving-card,
+  .involvement-card {
+    padding: 24px;
+  }
+}
+
+/* DONATE + OTHER GIVING (CENTERED + CLEAN) */
+.donation-options,.giving-options{
+  max-width:1200px;margin:0 auto;
+  display:grid;gap:28px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+}
+
+.donation-card,.giving-card{
+  background:#fff;border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  padding:34px;
+  display:flex;flex-direction:column;gap:14px;
+  align-items:center;text-align:center;
+}
+
+.donation-icon,.giving-icon{
+  width:58px;height:58px;border-radius:16px;
+  background:rgba(255,123,0,.14);
+  color:var(--orange);
+  display:grid;place-items:center;
+  font-size:1.6rem;line-height:1;
+  margin:0 0 10px 0;
+}
+.donation-icon i,.giving-icon i{color:var(--orange);font-size:1.6rem;}
+.donation-icon svg,.giving-icon svg{width:26px;height:26px;color:var(--orange);}
+
+.mobile-money-instructions{width:100%;}
+.mobile-money-instructions ol{
+  list-style:none;padding:0;margin:0;
+  display:flex;flex-direction:column;gap:10px;
+}
+.mobile-money-instructions ol li{
+  display:flex;gap:10px;justify-content:center;
+}
+.mobile-money-instructions ol li::before{content:"✓";color:var(--orange);font-weight:900;}
+
+.donate-btn,.giving-btn{
+  margin-top:auto;
+  display:inline-flex;justify-content:center;align-items:center;
+  padding:14px 22px;border-radius:999px;
+  background:var(--orange);color:#fff;font-weight:800;
+  text-decoration:none;border:none;
+}
+.donate-btn:hover,.giving-btn:hover{filter:brightness(1.06);}
+
+@media (max-width:768px){
+  .donation-card,.giving-card{padding:26px;}
+}
 
