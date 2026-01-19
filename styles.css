@@ -1261,3 +1261,42 @@ p { margin: 0 0 20px 0; color: var(--text); }
   border-radius:2px;
 }
 
+
+/* ✅ MOBILE NAV FIX (About page + iOS safety) */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+}
+
+.nav-container {
+  position: relative; /* ✅ makes the dropdown anchor correctly */
+}
+
+.hamburger {
+  position: relative;
+  z-index: 100000;
+  background: transparent;
+  border: 0;
+  padding: 10px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Make the bars actually visible + clickable area */
+.hamburger .bar {
+  display: block;
+  width: 28px;
+  height: 3px;
+  margin: 6px 0;
+  background: #fff;
+  border-radius: 3px;
+}
+
+/* Ensure dropdown is above everything */
+@media (max-width: 768px) {
+  .nav-menu {
+    z-index: 100001;
+  }
+}
+
