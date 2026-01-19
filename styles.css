@@ -115,7 +115,34 @@ p { margin: 0 0 20px 0; color: var(--text); }
 .donate-hero,
 .get-involved-hero,
 .blog-hero,
-.involvement-hero,
+.about-hero {
+  position: relative;
+  color: #fff;
+  text-align: center;
+}
+
+/* Keep overflow hidden only for the OTHER banners (not home) */
+.programs-hero,
+.contact-hero,
+.events-hero,
+.donate-hero,
+.get-involved-hero,
+.blog-hero,
+.about-hero {
+  overflow: hidden;
+}
+
+/* Home hero: don't clip sticky navbar/menu */
+.hero {
+  overflow: visible;
+}
+.hero,
+.programs-hero,
+.contact-hero,
+.events-hero,
+.donate-hero,
+.get-involved-hero,
+.blog-hero,
 .about-hero {
   position: relative;
   color: #fff;
@@ -145,7 +172,6 @@ p { margin: 0 0 20px 0; color: var(--text); }
 .donate-hero,
 .get-involved-hero,
 .blog-hero,
-.involvement-hero,
 .about-hero {
   position: relative;
   color: #fff;
@@ -159,37 +185,6 @@ p { margin: 0 0 20px 0; color: var(--text); }
 .donate-hero,
 .get-involved-hero,
 .blog-hero,
-.involvement-hero,
-.about-hero {
-  overflow: hidden;
-}
-
-/* Home hero: don't clip sticky navbar/menu */
-.hero {
-  overflow: visible;
-}
-.hero,
-.programs-hero,
-.contact-hero,
-.events-hero,
-.donate-hero,
-.get-involved-hero,
-.blog-hero,
-.involvement-hero,
-.about-hero {
-  position: relative;
-  color: #fff;
-  text-align: center;
-}
-
-/* Keep overflow hidden only for the OTHER banners (not home) */
-.programs-hero,
-.contact-hero,
-.events-hero,
-.donate-hero,
-.get-involved-hero,
-.blog-hero,
-.involvement-hero,
 .about-hero {
   overflow: hidden;
 }
@@ -215,7 +210,6 @@ p { margin: 0 0 20px 0; color: var(--text); }
 .donate-hero,
 .get-involved-hero,
 .blog-hero,
-.involvement-hero,
 .about-hero {
   min-height: 520px;        /* was 400px, this prevents the “half cut” look */
   padding: 140px 20px;      /* gives breathing room under navbar */
@@ -232,7 +226,6 @@ p { margin: 0 0 20px 0; color: var(--text); }
 .donate-hero::before,
 .get-involved-hero::before,
 .blog-hero::before,
-.involvement-hero::before,
 .about-hero::before {
   content: "";
   position: absolute;
@@ -249,7 +242,6 @@ p { margin: 0 0 20px 0; color: var(--text); }
 .donate-hero .container,
 .get-involved-hero .container,
 .blog-hero .container,
-.involvement-hero .container,
 .about-hero .container,
 .hero-container,
 .events-hero-content {
@@ -267,7 +259,7 @@ p { margin: 0 0 20px 0; color: var(--text); }
 .donate-hero h1, .donate-hero p,
 .get-involved-hero h1, .get-involved-hero p,
 .blog-hero h1, .blog-hero p,
-.involvement-hero h1, .involvement-hero p,
+.get-involvement-hero h1, .involvement-hero p,
 .about-hero h1, .about-hero p {
   color: #fff;
   text-shadow: 0 2px 6px rgba(0,0,0,0.6);
@@ -281,7 +273,6 @@ p { margin: 0 0 20px 0; color: var(--text); }
 .events-hero { background: url("images/harakati.jpg") center/cover no-repeat; }
 .donate-hero { background: url("images/PHOTO-2025-09-04-14-17-56.jpg") center/cover no-repeat; }
 .get-involved-hero { background: url("images/laugh.jpg") center/cover no-repeat; }
-.involvement-hero { background: url("images/laugh.jpg") center/cover no-repeat; }
 .about-hero { background: url("images/about-hero.jpg") center/cover no-repeat; }
 
 /* titles */
@@ -410,7 +401,6 @@ p { margin: 0 0 20px 0; color: var(--text); }
 /* ✅ Works for Programs page wrapper (your HTML uses: <section class="programs-section container"> ) */
 .programs-section,
 .get-involved-section,
-.involvement-section,
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -422,7 +412,6 @@ p { margin: 0 0 20px 0; color: var(--text); }
 /* ✅ Card style */
 .program-card,
 .get-involved-card,
-.involvement-card,
 .card-box {
   background: #fff;
   border-radius: var(--radius);
@@ -435,7 +424,6 @@ p { margin: 0 0 20px 0; color: var(--text); }
 
 .program-card:hover,
 .get-involved-card:hover,
-.involvement-card:hover,
 .card-box:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 24px rgba(0,0,0,0.12);
@@ -444,7 +432,6 @@ p { margin: 0 0 20px 0; color: var(--text); }
 /* ✅ Content inside cards */
 .program-content,
 .get-involved-content,
-.involvement-content,
 .card-content {
   padding: 25px;
   display: flex;
@@ -454,14 +441,12 @@ p { margin: 0 0 20px 0; color: var(--text); }
 
 .program-content p,
 .get-involved-content p,
-.involvement-content p,
 .card-content p {
   flex: 1; /* pushes the button down */
 }
 
 .program-content .cta-button,
 .get-involved-content .cta-button,
-.involvement-content .cta-button,
 .card-content .cta-button {
   align-self: flex-start;
 }
@@ -568,22 +553,35 @@ p { margin: 0 0 20px 0; color: var(--text); }
   margin: 8px 0;
 }
 
-/* Social links */
-.footer .social-links {
-  display:flex;
-  gap:15px;
-  margin-top:10px;
-  justify-content:center;
+/* Social links (icons) */
+.footer .social-links{
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+  justify-content: flex-start; /* left align under the title */
+  align-items: center;
 }
 
-.footer .social-links a {
-  color:#fff;
-  font-weight:500;
-  transition: color 0.3s ease;
-  font-size: 1.1rem;
+.footer .social-links a{
+  color: #fff;
+  font-size: 1.2rem;          /* icon size */
+  line-height: 1;
+  transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
 }
 
-.footer .social-links a:hover { color: var(--orange); }
+.footer .social-links a:hover{
+  color: var(--orange);
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+
+/* Mobile: center looks nicer */
+@media (max-width: 768px){
+  .footer .social-links{
+    justify-content: center;
+  }
+}
+
 
 /* =========================
    EVENTS PAGE (NO IMAGES)
@@ -631,6 +629,87 @@ p { margin: 0 0 20px 0; color: var(--text); }
 .event-img {
   display:none !important;
 }
+/* =========================
+   EVENTS – REGISTRATION FORM (FIX)
+========================= */
+.registration-section {
+  background: #f7f7f7;
+  padding: 80px 20px;
+}
+
+
+.registration-card{
+  background:#fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+
+  max-width: 100%;     /* was 850px */
+  margin: 0;           /* was 0 auto */
+}
+
+
+/* Two columns for rows that have 2 fields */
+.registration-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+/* Single field blocks */
+.registration-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.registration-form label {
+  font-weight: 600;
+}
+
+/* Make inputs look modern */
+.registration-form input,
+.registration-form select,
+.registration-form textarea {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Textarea sizing */
+.registration-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* Button */
+.registration-form .submit-btn {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.registration-form .submit-btn:hover {
+  filter: brightness(1.06);
+}
+
+/* Mobile: stack the two-column rows */
+@media (max-width: 768px) {
+  .registration-form .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* =========================
    BLOG (NO IMAGES)
@@ -1165,5 +1244,20 @@ p { margin: 0 0 20px 0; color: var(--text); }
   box-shadow: none !important;
   padding: 0 !important;
   border-radius: 0 !important;
+}
+
+
+
+.hamburger{
+  cursor: pointer;
+  padding: 10px;
+}
+.hamburger .bar{
+  display:block;
+  width:28px;
+  height:3px;
+  margin:5px 0;
+  background:#fff;
+  border-radius:2px;
 }
 

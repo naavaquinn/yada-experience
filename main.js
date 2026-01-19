@@ -2,25 +2,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ---------------- General Site JS ---------------- */
 
-    // ---------------- Mobile Navigation Toggle ----------------
-document.addEventListener('DOMContentLoaded', function() {
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('.nav-menu');
+   // ---------------- Mobile Navigation Toggle ----------------
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
 
-  if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
+if (hamburger && navMenu) {
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  });
 
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-      });
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      hamburger.classList.remove('active');
     });
-  }
-});
+  });
+}
+
 
 
     // Smooth Scroll ONLY for real anchor links (NOT page links)
@@ -235,7 +234,8 @@ if (document.body.classList.contains('blog-page')) {
       }
     }
 
-    document.addEventListener('DOMContentLoaded', renderBlogs);
+    renderBlogs();
+
 }
 
     /* ---------------- Donation Page JS ---------------- */
@@ -543,30 +543,33 @@ Thank you for supporting YADA-EXPERIENCE!`);
             });
         }
 
-        function handleRegistrationSubmit(e) {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                age: formData.get('age'),
-                school: formData.get('school'),
-                event: formData.get('event'),
-                motivation: formData.get('motivation')
-            };
-            console.log('Registration:', data);
-            alert('Thank you for registering! We will contact you soon.');
-            e.target.reset();
-        }
+       function handleRegistrationSubmit(e) {
+  e.preventDefault();
 
-        function handleNewsletterSubmit(e) {
-            e.preventDefault();
-            const email = document.getElementById('newsletter-email').value;
-            console.log('Newsletter:', email);
-            alert('Thank you for subscribing to our newsletter!');
-            e.target.reset();
-        }
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch(form.action, {
+    method: form.method || "POST",
+    body: formData,
+    headers: { "Accept": "application/json" }
+  })
+    .then(async (res) => {
+      if (res.ok) {
+        alert("Thank you for registering! We will contact you soon.");
+        form.reset();
+      } else {
+        const data = await res.json().catch(() => ({}));
+        console.log("Formspree error:", data);
+        alert("Oops — something went wrong. Please try again.");
+      }
+    })
+    .catch((err) => {
+      console.log("Network error:", err);
+      alert("Network error — please check your internet and try again.");
+    });
+}
+
 
         // Initialize events page
         renderFeaturedEvent();
